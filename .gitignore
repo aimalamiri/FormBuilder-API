@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 .idea
+.env
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
