@@ -54,3 +54,5 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+gem "ruby-lsp", "~> 0.3.5", :group => :development
