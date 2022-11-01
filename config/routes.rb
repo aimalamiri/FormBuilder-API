@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/authorized", to: "sessions#show"
   get "/dashboard", to: "users#show"
+
+  # Projects
+  resources :projects
 end
