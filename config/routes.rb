@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#show"
 
   # Projects
-  resources :projects
+  namespace 'api' do
+    resources :projects
+  end
 end
