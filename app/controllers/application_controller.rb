@@ -4,21 +4,21 @@ class ApplicationController < ActionController::API
   end
 
   def issue_token(user)
-    JWT.encode({ user_id: user.id }, jwt_key, 'HS256')
+    JWT.encode({ user_id: user.id }, jwt_key, "HS256")
   end
 
   def decoded_token
-    JWT.decode(token, jwt_key, true, { algorithm: 'HS256' })
+    JWT.decode(token, jwt_key, true, { algorithm: "HS256" })
   rescue StandardError => e
     [{ error: "Invalid Token #{e}" }]
   end
 
   def token
-    request.headers['Authorization']
+    request.cookies["authorization"]
   end
 
   def user_id
-    decoded_token.first['user_id']
+    decoded_token.first["user_id"]
   end
 
   def current_user
@@ -32,7 +32,10 @@ class ApplicationController < ActionController::API
   # Return error if the user is not logged_in?
   def authenticate_user!
     if logged_in? == false
-      render json: { error: 'User is not logged in/could not be found.' }, status: :unauthorized
+      render json: {
+               error: "User is not logged in/could not be found."
+             },
+             status: :unauthorized
     end
   end
 end
