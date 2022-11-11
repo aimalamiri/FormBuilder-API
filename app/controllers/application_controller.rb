@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
   end
 
   def token
-    request.headers['Authorization']
+    request.cookies['authorization']
   end
 
   def user_id
@@ -27,5 +27,15 @@ class ApplicationController < ActionController::API
 
   def logged_in?
     !!current_user
+  end
+
+  # Return error if the user is not logged_in?
+  def authenticate_user!
+    return unless logged_in? == false
+
+    render json: {
+             error: 'User is not logged in/could not be found.'
+           },
+           status: :unauthorized
   end
 end
