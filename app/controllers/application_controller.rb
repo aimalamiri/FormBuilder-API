@@ -31,11 +31,11 @@ class ApplicationController < ActionController::API
 
   # Return error if the user is not logged_in?
   def authenticate_user!
-    if logged_in? == false
-      render json: {
-               error: 'User is not logged in/could not be found.'
-             },
-             status: :unauthorized
-    end
+    return unless logged_in? == false
+
+    render json: {
+             error: 'User is not logged in/could not be found.'
+           },
+           status: :unauthorized
   end
 end
