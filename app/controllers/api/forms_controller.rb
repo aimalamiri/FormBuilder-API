@@ -1,4 +1,4 @@
-class Api::FormController < ApplicationController
+class Api::FormsController < ApplicationController
   before_action :authenticate_user!
 
   def index
