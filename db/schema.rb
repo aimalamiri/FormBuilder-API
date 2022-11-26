@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_124902) do
     t.bigint "user_id"
     t.string "name"
     t.string "description"
-    t.json "fields"
+    t.jsonb "fields"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_forms_on_user_id"

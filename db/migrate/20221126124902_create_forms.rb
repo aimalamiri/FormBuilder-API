@@ -4,7 +4,7 @@ class CreateForms < ActiveRecord::Migration[7.0]
       t.belongs_to :user
       t.string :name
       t.string :description
-      t.json :fields
+      t.jsonb :fields
 
       t.timestamps
     end
