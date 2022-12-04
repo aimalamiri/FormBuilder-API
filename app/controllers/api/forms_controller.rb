@@ -7,9 +7,6 @@ class Api::FormsController < ApplicationController
   end
 
   def create
-    p "-------------------- "
-    p form_params
-    p "--------------------"
     form = current_user.forms.create(form_params)
     render json: form
   end
