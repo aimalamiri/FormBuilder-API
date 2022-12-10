@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#show"
 
   # Projects
-  namespace 'api' do
+  namespace "api" do
     resources :projects
+    resources :forms, only: %i[index create edit update destroy]
   end
 end
