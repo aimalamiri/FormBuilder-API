@@ -11,6 +11,11 @@ class Api::FormsController < ApplicationController
     render json: form
   end
 
+  def edit
+    form = current_user.forms.find(params[:id])
+    render json: form
+  end
+
   def update
     form = current_user.forms.find(params[:id])
     form.update(form_params)

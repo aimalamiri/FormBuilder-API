@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   # Projects
   namespace "api" do
     resources :projects
-    resources :forms, only: %i[index create update destroy]
+    resources :forms, only: %i[index create edit update destroy]
   end
 end
